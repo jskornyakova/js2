@@ -5,6 +5,7 @@
     color: palevioletred;
     border-radius: 5px;
     width: 100px;
+    height: 35px;
 }
 
 .btn-cart:hover {
@@ -14,6 +15,10 @@
 
 header {
     margin-bottom: 20px;
+    background-color: #FFE6F0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .products {
@@ -32,12 +37,13 @@ header {
 }
 
 .product-item:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
 }
 
 .product-item h3 {
     text-transform: uppercase;
 }
+
 .buy-btn {
     border: 1px solid pink;
     background-color: white;
