@@ -8,7 +8,7 @@ class ProductsList {
     init(){
         this._fetchProducts();
         this._render();
-        this._costProductList(this.allProducts);
+
     }
     _fetchProducts(){ //условно входные данные от сервера
         this.data = [
@@ -26,13 +26,15 @@ class ProductsList {
             block.insertAdjacentHTML('beforeend', product.render());
         }
     }
-    _costProductList(items) {
-        var cost = 0;
-        for (let i = 0; i < items.length; i++) {
-            cost += items[i].price
+    costProductList(){ //подсчет стоимости товаров в каталоге
+        // return this.allProducts.reduce((accum, item) => accum + item.price, 0); второй вариант
+        let cost = 0;
+        for (let product of this.allProducts){
+            cost += product.price;
         }
-        console.log('Товаров на сумму ' + cost);
+        return cost;
     }
+
 }
 
 class ProductItem {
@@ -61,6 +63,8 @@ class Cart {
     // render() {} рендерим структуру всей корзины
     // costCart() {} стоимость корзины
     // clearCart() {} полностью очистить корзину
+    // addInCart () {} добавить в корзину ещё 1 ед. товара
+    // delFromCart () {} убрать товар из корзины как 1 ед., так и весь товар
 }
 class CartItem {
     constructor(){
@@ -71,8 +75,8 @@ class CartItem {
         //  this.quantity = 1; количество
     }
     // render() {} рендерим структуру элемента корзины
-    // addInCart () {} добавить в корзину ещё 1 ед. товара
-    // delFromCart () {} убрать товар из корзины как 1 ед., так и весь товар
+
 }
 
 const products = new ProductsList();
+console.log(products.costProductList());
