@@ -1,0 +1,23 @@
+form {
+    background-color: bisque;
+    width: 300px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+input {
+    padding-left: 5px;
+    padding-right: 5px; 
+}
+
+textarea {
+ width: 250px;
+}
+
+.error input, .error textarea {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+}
