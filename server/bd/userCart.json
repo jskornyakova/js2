@@ -11,7 +11,7 @@
             "shipping": "free",
             "img": "img/product_cart.jpg",
             "imgCart": "img/product_cart.jpg",
-            "quantity": 7
+            "quantity": 10
         },
         {
             "id_product": 2,
@@ -22,7 +22,7 @@
             "shipping": "free",
             "img": "img/product_cart2.jpg",
             "imgCart": "img/product_cart.jpg",
-            "quantity": 14
+            "quantity": 11
         },
         {
             "quantity": 3,

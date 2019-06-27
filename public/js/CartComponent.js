@@ -177,7 +177,9 @@ Vue.component('cart-grid',{
         remove(gridItem) {
             this.$emit('remove', gridItem);
         },
-
+        changeQuantity(product, quantity) {
+            this.$emit('changeQuantity');
+        },
     },
     template:`<div class="d-tr">
                     <div class="d-tr zaglav">
@@ -196,7 +198,7 @@ Vue.component('cart-grid',{
                             :color="item.color"
                             :size="item.size"
                             :grid-item="item"
-                            @input="$emit('changeQuantity', product, quantity)"
+                            @input="$emit('changeQuantity(item, item.quantity)')"
                             @remove="remove"></grid-item>
                            
                        

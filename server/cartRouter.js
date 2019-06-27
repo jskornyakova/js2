@@ -21,6 +21,10 @@ router.put('/:id', (req, res) => {
     handle(req, res, 'change', 'server/bd/userCart.json');
 });
 
+router.put('/:id', (req, res) => {
+    handle(req, res, 'changeQuantity', 'server/bd/userCart.json');
+});
+
 router.delete('/:id', (req, res) => {
     handle(req, res, 'remove', 'server/bd/userCart.json');
 });
