@@ -11,7 +11,7 @@
             "shipping": "free",
             "img": "img/product_cart.jpg",
             "imgCart": "img/product_cart.jpg",
-            "quantity": 10
+            "quantity": 8
         },
         {
             "id_product": 2,
@@ -22,10 +22,10 @@
             "shipping": "free",
             "img": "img/product_cart2.jpg",
             "imgCart": "img/product_cart.jpg",
-            "quantity": 11
+            "quantity": 9
         },
         {
-            "quantity": 3,
+            "quantity": 2,
             "id_product": 3,
             "product_name": "Mango people t-shirt",
             "price": 150,

@@ -1,4 +1,5 @@
 Vue.component('products', {
+    props: ['count'],
     data(){
       return {
           catalogUrl: `./products.json`,
@@ -20,14 +21,17 @@ Vue.component('products', {
                     this.products.push(el);
                     this.filtered.push(el);
                 }
-            })
+            });
+
     },
     template: `<div class="product-box">
         <product 
-        v-for="product of filtered" 
+        v-for="product of filtered.slice(0, count)"
         :key="product.id_product"
         :product="product"
-        :img="product.img"></product>
+        :img="product.img"
+        ></product>
+
     </div>`
 });
 Vue.component('product', {

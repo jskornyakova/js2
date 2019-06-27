@@ -15,6 +15,7 @@ Vue.component('cart', {
             }
 
             return this.cartItems.reduce((accum, item) => accum + (item.price * item.quantity), 0);
+
         }
     },
 
@@ -80,8 +81,6 @@ Vue.component('cart', {
                     })
             }
         },
-
-
     },
     mounted() {
         this.$parent.getJson(`/api/cart`)
@@ -100,6 +99,7 @@ Vue.component('cart', {
                     :total="total"
                     :cartItems="cartItems"
                     @remove="remove"
+                    @changeQuantity="changeQuantity"
                     v-else-if="kind === 'big'"></cart-grid>`
 });
 
@@ -140,9 +140,9 @@ Vue.component('cart-small',{
                             @remove="remove"></cart-item>
                             <p v-if="!cartItems.length"><h1 class="h1-cart">TOTAL<span>$ {{total}}</span></h1></p>
                             <br>
-                            <div class="button_cart"><a href="checkout.html">Checkout</a></div>
+                            <div class="button_cart bas"><a href="checkout.html">Checkout</a></div>
                             <br>
-                            <div class="button_cart"><a href="shopping_cart.html">Go to cart</a></div>
+                            <div class="button_cart bas"><a href="shopping_cart.html">Go to cart</a></div>
                     </div>
                 </div>
     `,
@@ -160,8 +160,8 @@ Vue.component('grid-item', {
                         <div class="d-td">$ {{gridItem.price}}</div>
                         <form class="d-td">
                             <input 
-                            v-model.number="gridItem.quantity"
-                            @input="$emit('changeQuantity', $event.target.value)"
+                            :value="gridItem.quantity"
+                            @input="$emit('input', gridItem, $event.target.value)"
                           type="number" name="num1" min="1" max="10"> 
                         </form>
                         <div class="d-td">{{gridItem.shipping}}</div>
@@ -178,8 +178,8 @@ Vue.component('cart-grid',{
             this.$emit('remove', gridItem);
         },
         changeQuantity(product, quantity) {
-            this.$emit('changeQuantity');
-        },
+            this.$emit('changeQuantity', product, quantity)
+        }
     },
     template:`<div class="d-tr">
                     <div class="d-tr zaglav">
@@ -198,7 +198,7 @@ Vue.component('cart-grid',{
                             :color="item.color"
                             :size="item.size"
                             :grid-item="item"
-                            @input="$emit('changeQuantity(item, item.quantity)')"
+                            @input="changeQuantity"
                             @remove="remove"></grid-item>
                            
                        
